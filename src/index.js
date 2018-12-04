@@ -12,7 +12,7 @@ fastify.post('/deploy', (req, res) => {
 })
 
 const port = process.env.PORT || 3000
-fastify.listen(port, (err, address) => {
+fastify.listen(port, '0.0.0.0', (err, address) => {
   if (err) throw err
   fastify.log.info(`Server listenging on ${address}:${port}`)
 })
