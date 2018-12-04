@@ -1,18 +1,18 @@
-const fastify = require('fastify')({
-  logger: true
-})
+const app = require('express')()
+const parser = require('body-parser')
 
-fastify.get('/', (req, res) => {
+app.use(parser.urlencoded())
+
+app.get('/', (req, res) => {
   res.send('ok')
 })
 
-fastify.post('/deploy', (req, res) => {
+app.post('/deploy', (req, res) => {
   console.log(req.body)
   res.send('ok')
 })
 
 const port = process.env.PORT || 3000
-fastify.listen(port, '0.0.0.0', (err, address) => {
-  if (err) throw err
-  fastify.log.info(`Server listenging on ${address}:${port}`)
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Start listening on port ${port}`)
 })
