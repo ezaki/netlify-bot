@@ -1,0 +1,26 @@
+{
+  "name": "netlify-bot",
+  "description": "Slack bot for netlify deploy",
+  "repository": "https://github.com/ezaki/netlify-bot",
+  "keywords": ["node", "bot", "netlify"],
+  "env": {
+    "TOKEN": {
+      "description": "Slack token",
+      "required": true
+    },
+    "BUILD_WEBHOOK": {
+      "description": "Netlify build webhook url",
+      "required": true
+    }
+  },
+  "addons": [
+    {
+      "plan": "scheduler:standard"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
